@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="650" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="85146e21-db94-490d-a45c-1452fadf08cf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tgl1" class="java.lang.String"/>
+	<parameter name="tgl2" class="java.lang.String"/>
+	<parameter name="RealPath" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     penjualan.`id_transaksi` AS penjualan_id_transaksi,
+     penjualan.`tanggal` AS penjualan_tanggal,
+     penjualan.`id_barang` AS penjualan_id_barang,
+     penjualan.`merek` AS penjualan_merek,
+     penjualan.`harga` AS penjualan_harga,
+     penjualan.`jumlah` AS penjualan_jumlah,
+     penjualan.`subtotal` AS penjualan_subtotal,
+     penjualan.`total` AS penjualan_total,
+     penjualan.`bayar` AS penjualan_bayar,
+     penjualan.`kembali` AS penjualan_kembali
+FROM
+     `penjualan` penjualan
+where tanggal between $P{tgl1} and $P{tgl2}]]>
+	</queryString>
+	<field name="penjualan_id_transaksi" class="java.lang.String"/>
+	<field name="penjualan_tanggal" class="java.sql.Date"/>
+	<field name="penjualan_id_barang" class="java.lang.String"/>
+	<field name="penjualan_merek" class="java.lang.String"/>
+	<field name="penjualan_harga" class="java.lang.Integer"/>
+	<field name="penjualan_jumlah" class="java.lang.Integer"/>
+	<field name="penjualan_subtotal" class="java.lang.Integer"/>
+	<field name="penjualan_total" class="java.lang.Integer"/>
+	<field name="penjualan_bayar" class="java.lang.Integer"/>
+	<field name="penjualan_kembali" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="98" y="45" width="367" height="32" uuid="a0f56b6e-c533-49b3-8c32-aa075a6e68f4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPOK TOWN SQUARE Lt. 2 BLOK SS8 NO. 1 JL. MARGONDA RAYA NO.1 - DEPOK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="0" width="377" height="45" uuid="b7138b48-50f0-4269-898b-8b384662cb25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GLOBAL ARTHA COMPUTER]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="88" height="77" uuid="3cd13e96-25bb-463b-a30c-cea8cf0480d3"/>
+				<imageExpression><![CDATA[$P{RealPath}+"logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="172" y="0" width="201" height="39" uuid="36cada21-ea5e-4b0a-9b56-44e863ba6d79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN DATA PENJUALAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="5" y="67" width="100" height="20" uuid="4a775738-65e0-4520-85f1-a350ea97b5a6"/>
+				<textFieldExpression><![CDATA[$P{tgl1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="67" width="100" height="20" uuid="893a85d0-fc76-45ec-aecd-4a4f1ca175dc"/>
+				<textFieldExpression><![CDATA[$P{tgl2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="105" y="67" width="43" height="20" uuid="b413468a-b9b1-4068-8596-7b63e294658d"/>
+				<text><![CDATA[sampai]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="69" height="20" uuid="57198bb7-d287-49da-b16c-6c4f66f6f454"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID TRANS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="0" width="69" height="20" uuid="fd21e0f7-9e14-4da0-8e68-6a389f25cda3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="0" width="69" height="20" uuid="23cc40ac-17d4-4c62-82e4-628f8f1ec6ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="0" width="69" height="20" uuid="ad2e4515-424f-4e30-a254-2f6115a51481"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEREK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="69" height="20" uuid="2f097c81-4b22-461d-90a4-e2d17f17c1b9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HARGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="0" width="69" height="20" uuid="d6a1956c-ef6c-4cb6-9455-120257d910f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUMLAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="0" width="69" height="20" uuid="57f50519-20ec-461f-8e41-059bc35e0651"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUBTOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="0" width="69" height="20" uuid="7fff63b3-28e7-427e-b917-b3c06607c482"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="69" height="20" uuid="5b79529b-7932-449c-8750-7500a1add0a0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_id_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="69" y="0" width="69" height="20" uuid="3dbc5b50-3184-430d-aa58-dc6b7fabd4e0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="0" width="69" height="20" uuid="c8152cba-09e3-4f22-9ccf-3970012ffe63"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_id_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="207" y="0" width="69" height="20" uuid="282c0cd6-6e76-4449-a42c-ba884ba5370c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_merek}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="69" height="20" uuid="daf7445e-2bea-4c14-87b7-34923e79d2e5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="0" width="69" height="20" uuid="4f93842b-e9ab-40a0-b02f-0e3adfb9091a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="0" width="69" height="20" uuid="2e7597e7-4f77-4517-b0a9-9fa4ccb3ceab"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="483" y="0" width="69" height="20" uuid="b3d8578f-a5c9-4db6-ab91-7281657b53b4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{penjualan_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="146" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="403" y="10" width="151" height="20" uuid="febb1a04-af6f-4cd2-bf7c-d5c9947fba35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="303" y="10" width="100" height="20" uuid="60dad6ec-1a83-4ee9-b19e-b7ee6dc40c0c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Depok, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="107" width="157" height="39" uuid="cb61bfed-8886-4bef-abcc-86955dba3df3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Century Gothic" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Agus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="30" width="158" height="39" uuid="d8de13be-a98e-4448-9c69-a0db046a8e83"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Manager]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
